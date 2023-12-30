@@ -86,6 +86,10 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+
+console.log("Financial Analysis")
+console.log("---------------")
+
     // Total months
 var TotalMonths = finances.length;
 console.log("Total Months:" , TotalMonths);
@@ -115,7 +119,6 @@ for (let count = 0; count < NumbersOnly.length - 1; count++, A++, B++) {
   Difference.push(NumbersOnly[A] - NumbersOnly[B])
 }
 
-console.log("Difference array:" , Difference)
 // Finds total of Differences
 var NetTotalDifference = 0;
 for (let count = 0; count < Difference.length; count++) {
@@ -130,38 +133,48 @@ console.log("Average change:" , roundedAverageDifference )
 
     // Gretest increase in Profit
 
-// Finds the biggest number in "Differennces" array
-// And it's index in array
-
-var largestNumber = Difference[0]
-var largestNumberIndex = 0;
-
-for (let count = 1; count < Difference.length; count++) {
-  if (Difference[count] > largestNumber) {
-    largestNumber = Difference[count];
-    largestNumberIndex = count;
-  }
-}
-
-console.log("Greatest Increase in Profits/Losses:", largestNumber )
-
+    function findGreatestIncrease(data) {
+      var maxIncrease = 0;
+      var maxIncreaseMonth = '';
+    
+      for (let count = 1; count < data.length; count++) {
+        const currentMonth = data[count][0];
+        const currentProfit = data[count][1];
+        const previousProfit = data[count - 1][1];
+        const increase = currentProfit - previousProfit;
+    
+        if (increase > maxIncrease) {
+          maxIncrease = increase;
+          maxIncreaseMonth = currentMonth;
+        }
+      }
+      return { month: maxIncreaseMonth, increase: maxIncrease };
+    }
 
 
     // Greatest decrease in profit
 
-// Finds the smallest number in "Differennces" array (lowest negative)
-// And it's index in array
-var lowestNumber = Difference[0];
-var lowestNumberIndex = 0;
-
-for (let count = 1; count < Difference.length; count++) {
-  if (Difference[count] < lowestNumber) {
-      lowestNumber = Difference[count];
-      lowestNumberIndex = count;
+    function findGreatestDecrease(data) {
+      var maxDecrease = 0;
+      var maxDecreaseMonth = '';
+    
+      for (let count = 1; count < data.length; count++) {
+        const currentMonth = data[count][0];
+        const currentProfit = data[count][1];
+        const previousProfit = data[count - 1][1];
+        const decrease = previousProfit - currentProfit;
+    
+        if (decrease > maxDecrease) {
+          maxDecrease = decrease;
+          maxDecreaseMonth = currentMonth;
+        }
       }
+      return { month: maxDecreaseMonth, decrease: maxDecrease };
     }
 
-console.log("Greatest Decrease in Profits/Losses:", lowestNumber )
+var greatestDecrease = findGreatestDecrease(finances);
+var greatestIncrease = findGreatestIncrease(finances);
 
 
-console.log(lowestNumberIndex , largestNumberIndex)
+console.log("Greatest Increase in Profits/Losses:", greatestIncrease )
+console.log("Greatest Decrease in Profits/Losses:", greatestDecrease )
