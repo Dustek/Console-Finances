@@ -86,3 +86,41 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+    // Total months
+var TotalMonths = finances.length;
+console.log("Total Months:" , TotalMonths);
+
+    // Net total profit
+
+// Creates array with numbers only
+var NumbersOnly = finances.map(function(number) {
+  return number[1]
+});
+
+// Adds all the numbers together
+var NetTotal = 0;
+for (let count = 0; count < NumbersOnly.length; count++) {
+  NetTotal = NetTotal + NumbersOnly[count];
+}
+console.log("Total: $" + NetTotal);
+
+    // Average of changes in profit/losses
+
+// Creates array "Difference" containing all changes in profit/losses
+var A = 0;
+var B = 1;
+const Difference = [];
+
+for (let count = 0; count < NumbersOnly.length - 1; count++, A++, B++) {
+  Difference.push(NumbersOnly[A] - NumbersOnly[B])
+}
+
+console.log("Difference array:" , Difference)
+// Finds total of Differences
+var NetTotalDifference = 0;
+for (let count = 0; count < Difference.length; count++) {
+  NetTotalDifference = NetTotalDifference + Difference[count];
+}
+// Finds average of differences
+var averageDifference =  NetTotalDifference / Difference.length
+console.log("Average change:" , averageDifference )
