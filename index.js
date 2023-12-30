@@ -123,4 +123,45 @@ for (let count = 0; count < Difference.length; count++) {
 }
 // Finds average of differences
 var averageDifference =  NetTotalDifference / Difference.length
-console.log("Average change:" , averageDifference )
+var roundedAverageDifference = averageDifference.toFixed(2);
+
+console.log("Average change:" , roundedAverageDifference )
+
+
+    // Gretest increase in Profit
+
+// Finds the biggest number in "Differennces" array
+// And it's index in array
+
+var largestNumber = Difference[0]
+var largestNumberIndex = 0;
+
+for (let count = 1; count < Difference.length; count++) {
+  if (Difference[count] > largestNumber) {
+    largestNumber = Difference[count];
+    largestNumberIndex = count;
+  }
+}
+
+console.log("Greatest Increase in Profits/Losses:", largestNumber )
+
+
+
+    // Greatest decrease in profit
+
+// Finds the smallest number in "Differennces" array (lowest negative)
+// And it's index in array
+var lowestNumber = Difference[0];
+var lowestNumberIndex = 0;
+
+for (let count = 1; count < Difference.length; count++) {
+  if (Difference[count] < lowestNumber) {
+      lowestNumber = Difference[count];
+      lowestNumberIndex = count;
+      }
+    }
+
+console.log("Greatest Decrease in Profits/Losses:", lowestNumber )
+
+
+console.log(lowestNumberIndex , largestNumberIndex)
