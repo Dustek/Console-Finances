@@ -35,15 +35,12 @@ I would like to give credit to my instructor, Abdul, as well as all the TA's and
 
 https://dustek.github.io/Bootstrap-Portfolio/
 
-## Link to previous website (no bootstrap):
-
-https://dustek.github.io/Portfolio/
 
 
 
 
-## Screenshots:
+## Screenshot:
 
-![screenshot](https://github.com/Dustek/Bootstrap-Portfolio/blob/main/images/screenshot1.png)
+![screenshot](https://github.com/Dustek/Console-Finances/blob/master/screenshots/screenshot.png)
 
-![screenshot](https://github.com/Dustek/Bootstrap-Portfolio/blob/main/images/screenshot2.png)
+
